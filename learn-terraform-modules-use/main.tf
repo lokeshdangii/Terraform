@@ -44,3 +44,17 @@ module "ec2_instances" {
     Environment = "dev"
   }
 }
+
+module "website_s3_bucket" {
+  source = "./modules/aws-s3-static-website-bucket"
+
+
+  bucket_name = "lokesh-bucket-10-March-2024"
+
+  tags = {
+
+    Terraform = "true"
+    Environment = "dev"
+   
+   }
+ }
