@@ -1,10 +1,8 @@
-# This resource will create SG for Terraform-VPC
-
+# Creates a security group with inbound rules for ports 22,80 and allows all outbound traffic.
 resource "aws_security_group" "sg_22_80" {
   name   = "sg_22"
   vpc_id = var.vpc_id
 
-  # SSH access from the VPC
   ingress {
     from_port   = 22
     to_port     = 22
@@ -19,14 +17,6 @@ resource "aws_security_group" "sg_22_80" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-
-  ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   egress {
     from_port   = 0
     to_port     = 0
@@ -35,6 +25,6 @@ resource "aws_security_group" "sg_22_80" {
   }
 
   tags = {
-    Name = "SG-Modularity"
+    Name = "Lokesh-SG"
 }
 }

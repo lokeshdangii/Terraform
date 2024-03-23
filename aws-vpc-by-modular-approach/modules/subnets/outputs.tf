@@ -1,5 +1,5 @@
 output "subnet_id" {
   value       = aws_subnet.subnet_public.id
-  description = "The ID of the subnet."
+  description = "Outputs the ID of the created subnet."
 }
 
